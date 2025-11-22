@@ -3,6 +3,26 @@
 // Hint: You can destructure props in the function parameters
 // Hint: For conditional rendering of realName, use the && operator
 
+// Styling Reference:
+// const cardStyle = {
+//   backgroundColor: 'rgba(255, 255, 255, 0.1)',
+//   borderRadius: '12px',
+//   padding: '20px',
+//   backdropFilter: 'blur(10px)',
+//   border: '1px solid rgba(255, 255, 255, 0.2)',
+//   boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+//   transition: 'transform 0.3s',
+// };
+
+// const imageStyle = {
+//   width: '100%',
+//   height: '200px',
+//   objectFit: 'cover',
+//   borderRadius: '8px',
+//   marginBottom: '15px',
+// };
+//
+
 // Example component structure:
 // function HeroCard(props) {
 //   // Your component code here
