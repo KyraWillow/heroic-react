@@ -45,7 +45,11 @@
       // This should be a function that returns an <h1> element
       // The h1 should display: "Welcome to My React App"
       // Add some inline styles: color: 'white', textAlign: 'center'
-      //
+      function HeaderComponent () {
+        return (
+          <h1  style={{color: 'white', textAlign: 'center'}}>Welcome to Main Menu</h1>
+        )
+      }
       // Template:
       // function ComponentName() {
       //   return (
@@ -56,21 +60,86 @@
       // STEP 2: Create a Message component
       // Return a <p> tag with the text: "This is my first React component!"
       // Style it with: color: 'white', fontSize: '20px'
-
+        function MessageComponent() {
+          return (
+            <p style={{color: 'white', fontSize: '20px', textAlign:'center'}}>This is my first React component!</p>
+          )
+        }
       // STEP 3: Create a Button component
       // Return a <button> with text "Click Me"
       // Style it with: padding: '10px 20px', fontSize: '16px', cursor: 'pointer'
       // Bonus: Add an onClick handler that shows an alert
+        function ButtonStartComponent() {
+          return (
+           <button style={{padding:'10px 20px', margin:'10px', fontSize:'16px', cursor:'pointer', borderRadius:'17px'}} onClick={() => {alert("The game is starting, please wait a moment.")}}>Play</button>
+          )
+        }
 
+        function ButtonLoadComponent() {
+          return (
+           <button style={{padding:'10px 20px', margin:'10px',fontSize:'16px', cursor:'pointer', borderRadius:'17px'}} onClick={() => {alert('The game is loading, please wait a moment.')}}>Load</button>
+          )
+        }
+
+        function ButtonSettingComponent() {
+          return (
+           <button style={{padding:'10px 20px', margin:'10px',fontSize:'16px', cursor:'pointer', borderRadius:'17px'}} onClick={() => {alert('Settings menu, please adjust the game to your play style.')}}>Settings</button>
+          )
+        }
       // STEP 4: Create a Footer component
       // Return a <p> with copyright text: "© 2024 My React Workshop"
       // Style: color: 'white', textAlign: 'center', marginTop: '40px'
-
+        function FooterComponent() {
+          return (
+           <p style={{color:'white', padding:'10px 20px', textAlign:'center', marginTop:'40px'}}>© 2024 My React Workshop</p>
+          )
+        }
       // STEP 5: Create the main App component
       // This component should use ALL the components you created above
       // Components are used like HTML tags: <Header /> <Message /> <Button /> <Footer />
       // Wrap them in a <div> with some padding
-      //
+        function App() {
+          return(
+            <div>
+              <div style={{
+              padding: '40px',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '16px',
+              maxWidth: '600px',
+              margin: '20px auto',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              textAlign:'center'
+            }}>
+              <HeaderComponent />
+              <MessageComponent />
+              <ButtonStartComponent />
+              <ButtonLoadComponent />
+              <ButtonSettingComponent/>
+              <FooterComponent />
+            </div>
+
+            <div style={{
+              color:'white',
+              padding: '40px',
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderRadius: '16px',
+              maxWidth: '600px',
+              margin: '20px auto',
+              boxShadow: '0 8px 32px rgba(0, 0, 0, 0.2)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              textAlign:'center'
+            }}>
+                        <h2>Main Character </h2>
+              <Composition/>
+            </div>
+
+            </div>
+            
+          )
+        }
       // Remember: JSX must have ONE root element
       // All your components should be children of a single parent div
 
@@ -79,7 +148,7 @@
       const rootElement = document.getElementById('root');
       const root = ReactDOM.createRoot(rootElement);
       // Call root.render() with your App component: <App />
-
+      root.render(<App />)
       // BONUS CHALLENGE 1: Create a styled Card component
       // Return a div with:
       // - backgroundColor: 'rgba(255, 255, 255, 0.1)'
@@ -87,11 +156,38 @@
       // - borderRadius: '8px'
       // - margin: '10px'
       // Put an h3 and p inside it with hero information
-
+        function StyledCard({name, description}) {
+          return (
+            <div style= {{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              padding: '20px',
+              borderRadius: '8px',
+              margin: '10px'
+            }}>
+            <h3>{name}</h3>
+            <p>{description}</p>
+            </div>
+          )
+        }
       // BONUS CHALLENGE 2: Component Composition
       // Create multiple Card components with different hero data
       // Use them inside your App component
       // Try: Iron Man, Spider-Man, Wonder Woman
+      function Composition() {
+        return (
+          <div>
+            <StyledCard 
+            name='Liora Yunara'
+            description='Programmer, streammer, genius'/>
+            <StyledCard 
+            name='Kyra Willow'
+            description='Streammer and genius'/>
+            <StyledCard 
+            name='Hoshi Sora'
+            description='Moba Player'/>
+            </div>
+        )
+      }
 
       // KEY CONCEPTS:
       // ✓ Components are reusable pieces of UI

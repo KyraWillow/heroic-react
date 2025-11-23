@@ -36,7 +36,7 @@
       // STEP 1: Get the root DOM element
       // Use document.getElementById() to get the element with id "root"
       // Store it in a variable called rootElement
-
+      const rootElement = document.getElementById('root')
       // STEP 2: Create a React element using React.createElement
       // API: React.createElement(type, props, ...children)
       // - type: string like 'div', 'h1', 'p', or a component
@@ -52,19 +52,48 @@
       // - child: an h1 element with text "Hello World"
       //
       // React Docs: https://react.dev/reference/react/createElement
-
+      const reactDiv = React.createElement('div', {
+        className: 'container',
+        style: {
+          backgroundColor: 'white',
+          padding: '20px',
+          borderRadius: '8px',
+          textAlign: 'center'
+        }
+      }, 'Hello World')
       // STEP 3: Create a React root
       // Use ReactDOM.createRoot() passing in your rootElement
       // Store the result in a variable called root
       // Docs: https://react.dev/reference/react-dom/client/createRoot
-
+      const root = ReactDOM.createRoot(rootElement)
       // STEP 4: Render your React element
       // Call root.render() passing in your element
+      root.render(reactDiv)
 
       // BONUS CHALLENGE 1: Create nested elements
       // Make your div contain both an h1 and a p element
       // You can pass multiple children as additional arguments:
       // React.createElement('div', props, child1, child2, child3)
+      const reactH1 = React.createElement('h1', null, 'Okta Putra Ramadhan')
+      const reactParagraph = React.createElement('p', null, 'Seorang web developer & Machine Learning Engineering')
+      const reactSkill = React.createElement('ul', null, 
+      React.createElement('li', null,'Python language'),
+      React.createElement('li', null, 'Scikit-Learn'),
+      React.createElement('li', null, 'Seaborn'),
+      React.createElement('li', null, 'Javascripts'),
+      )
+
+      const containers = React.createElement('div', {
+        className: 'pClass',
+        style: {
+          backgroundColor: 'white',
+          padding: '20px',
+          borderRadius: '8px',
+          textAlign: 'center'
+        }
+      }, reactH1, reactParagraph, reactSkill)
+
+      ReactDOM.createRoot(rootElement).render(containers)
 
       // BONUS CHALLENGE 2: Add an onClick event
       // Add onClick to props: { onClick: function() { alert('Clicked!') } }

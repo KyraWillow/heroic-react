@@ -29,14 +29,14 @@
       // STEP 1: Create a div element
       // MDN Reference: https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
       // The createElement method takes a tag name as a string parameter
-
+      const div = document.createElement('div')
       // STEP 2: Set the text content
       // You can use either .textContent or .innerHTML property
       // Set it to "Hello World"
-
+      div.textContent = "Selamat datang semua"
       // STEP 3: Add a CSS class
       // Use the .className property to add "container" class
-
+      div.className = "container"
       // STEP 4: Add inline styles using the .style property
       // You'll need to set multiple style properties:
       // - color (try 'white')
@@ -46,18 +46,66 @@
       // - borderRadius (try '16px')
       // - textAlign (try 'center')
       // Note: CSS properties in JS use camelCase (background-color → backgroundColor)
-
+      div.style.color = 'white'
+      div.style.fontSize = '48px'
+      div.style.padding = '40px'
+      div.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'
+      div.style.borderRadius = '16px'
+      div.style.textAlign = 'center'
       // STEP 5: Append to the DOM
       // Use document.body.appendChild() to add your element to the page
-
+      document.body.appendChild(div)
       // BONUS CHALLENGE 1: Create a second element (like a paragraph) with your name
       // Follow the same steps as above but use 'p' tag instead of 'div'
+      const paragraph = document.createElement('p')
+      paragraph.textContent = 'Saya seorang mahasiswa Informatika semester 3'
+      paragraph.className = 'description'
 
+      paragraph.style.color = 'white'
+      paragraph.style.fontSize = '20px'
+
+      div.append(paragraph)
       // BONUS CHALLENGE 2: Add a button that changes the text when clicked
       // 1. Create a button element
       // 2. Set its text to "Click Me"
       // 3. Add an event listener: button.addEventListener('click', function() { ... })
       // 4. Inside the function, change the div's textContent to something new
+      const button = document.createElement('button')
+      button.textContent = 'Detail Saya'
+
+      button.style.backgroundColor = 'white'
+      button.style.fontSize = '18px'
+      button.style.borderRadius = '10px'
+      button.style.padding = '14px 28px'
+      button.style.cursor = 'pointer'
+
+      button.addEventListener('mouseenter', () => {
+        button.style.transform = 'scale(1.05)';
+        button.style.backgroundColor = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%);'
+        button.style.color = 'gray'
+      })
+
+      button.addEventListener('mouseleave', () => {
+        button.style.transform = 'scale(1)';
+        button.style.backgroundColor = 'white'
+        button.style.color = 'black'
+      })
+
+      button.addEventListener('click', () => {
+        div.textContent = 'Okta Putra Ramadhan'
+        div.style.fontWeight = 'bold'
+
+        paragraph.textContent = 'Seorang fullstack web developer & Machine Learning Engineering'
+        paragraph.style.fontWeight = 'normal'
+
+        div.append(paragraph)
+
+        button.textContent = 'Click Me!'
+        
+        div.append(button)
+      })
+
+      div.append(button)
     </script>
   </body>
 </html>
